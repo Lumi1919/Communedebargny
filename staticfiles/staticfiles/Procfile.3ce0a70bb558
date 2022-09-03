@@ -1,1 +1,0 @@
-web: gunicorn Commune.wsgi --log-file -

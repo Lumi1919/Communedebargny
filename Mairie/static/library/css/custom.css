@@ -9,10 +9,10 @@
 	/* body { font-family: 'insert-font-family-name-here', 'Arial', sans-serif; } */
 
 	/* STANDARD LOGO DIMENSIONS */
-	.header-branding img { width: 300px; }
+	.header-branding img { width: 140px; }
 
 	/* LARGE LOGO DIMENSIONS */
-	.header-branding.m-large-logo img { width: 300px; }
+	.header-branding.m-large-logo img { width: 200px; }
 	/* Scroll down to "MEDIUM DEVICES" to change width of large logo on mobile devices */
 
 	/* your CSS here */
@@ -43,7 +43,7 @@
     @media ( max-width: 991px ) {
 
 		/* LARGE LOGO DIMENSIONS */
-		.header-branding.m-large-logo img { width: 300px; }
+		.header-branding.m-large-logo img { width: 140px; }
 
 		/* your CSS here */
 

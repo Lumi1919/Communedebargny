@@ -9,8 +9,6 @@
 
 ----------------------------------------------------------------------------- */
 
-
-
 /* -----------------------------------------------------------------------------
 
 	TABLE OF CONTENTS
@@ -36,9 +34,9 @@
 
 ----------------------------------------------------------------------------- */
 
-@import 'import/bootstrap', 'import/font-awesome',
-'import/font-townpress', 'import/owl.carousel',
-'import/magnific-popup', 'import/reset';
+@import 'import/bootstrap.scss', 'import/font-awesome.scss',
+	'import/font-townpress.scss', 'import/owl.carousel.scss',
+	'import/magnific-popup.scss', 'import/reset.scss';
 
 
 /* -----------------------------------------------------------------------------
@@ -105,7 +103,7 @@ $vs: 24px; // vertical space
 	code { padding: 5px; font-family: monospace; border: 1px solid transparent; }
 	em { font-style: italic; }
 	img { max-width: 100%; height: auto; }
-	p { line-height: 1.5em; margin: 0 0 $vs 0; text-align: justify }
+	p { line-height: 1.5em; margin: 0 0 $vs 0; }
 	pre { margin-bottom: $vs; padding: 10px; font-family: monospace; border: 1px solid transparent; overflow-x: scroll; }
 	q { font-style: italic; }
 	strong { font-weight: bold; }
@@ -1374,6 +1372,3 @@ $vs: 24px; // vertical space
 	#footer { display: none; }
 
 }
-
-
-

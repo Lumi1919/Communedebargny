@@ -1,5 +1,10 @@
 @font-face {
   font-family: 'townpress';
+  src:  url('/static/library/fonts/townpress.eot?u6p4kh');
+  src:  url('/static/library/fonts/townpress.eot?u6p4kh#iefix') format('embedded-opentype'),
+    url('/static/library/fonts/townpress.ttf?u6p4kh') format('truetype'),
+    url('/static/library/fonts/townpress.woff?u6p4kh') format('woff'),
+    url('/static/library/fonts/townpress.svg?u6p4kh#townpress') format('svg');
   font-weight: normal;
   font-style: normal;
 }

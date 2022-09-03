@@ -1,1 +1,1 @@
-web: gunicorn Oceanium.wsgi --log-file -
+web: gunicorn Commune.wsgi --log-file -

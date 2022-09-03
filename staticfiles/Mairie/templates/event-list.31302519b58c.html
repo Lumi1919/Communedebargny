@@ -1,0 +1,242 @@
+﻿{% extends 'layouts/base.html' %}
+
+{% block content%}
+
+		<!-- CORE : begin -->
+		<div id="core">
+			<div class="c-container">
+				<div class="row">
+
+					<!-- MIDDLE COLUMN : begin -->
+					<div class="middle-column col-md-6 col-md-push-3">
+
+						<!-- PAGE HEADER : begin -->
+						<div id="page-header" class="m-has-breadcrumbs">
+
+							<!-- PAGE TITLE : begin -->
+							<div class="page-title">
+								<h1>Evènements</h1>
+							</div>
+							<!-- PAGE TITLE : end -->
+
+							<!-- BREADCRUMBS : begin -->
+							<div class="breadcrumbs">
+								<ul>
+									<li class="home"><a href="{% url 'Mairie:accueil' %}">Accueil</a></li>
+									<li>Evènements</li>
+								</ul>
+							</div>
+							<!-- BREADCRUMBS : end -->
+
+						</div>
+						<!-- PAGE HEADER : end -->
+
+						<!-- PAGE CONTENT : begin -->
+						<div id="page-content">
+							<div class="page-content-inner">
+
+								<!-- EVENT LIST PAGE : begin -->
+								<div class="event-list-page event-page">
+
+									<!-- GROUP TITLE : begin -->
+									<h2 class="group-title">2022</h2>
+									<!-- GROUP TITLE : end -->
+
+									<!-- EVENT : begin -->
+									{% for event in events %}
+									<article class="event">
+										<div class="event-inner c-content-box m-no-padding">
+
+											<!-- EVENT IMAGE : begin -->
+											<div class="event-image">
+												{% if event.image %}
+												<a href="{% url 'Mairie:event_show' id=event.id %}"><img src="{{event.image.url}}" alt=""></a>
+												{% endif %}
+											</div>
+											<!-- EVENT IMAGE : end -->
+
+											<!-- EVENT CORE : begin -->
+											<div class="event-core">
+
+												<!-- EVENT TITLE : begin -->
+												<h2 class="event-title"><a href="{% url 'Mairie:event_show' id=event.id %}">{{event.titre}}</a></h2>
+												<!-- EVENT TITLE : end -->
+
+												<!-- EVENT INFO : begin -->
+												<ul class="event-info">
+													<li class="event-date">
+														<i class="ico tp tp-calendar-full"></i>{{event.date}}
+													</li>
+													<li class="event-time">
+														<i class="ico tp tp-clock2"></i>17:00
+													</li>
+													<li class="event-location">
+														<i class="ico tp tp-map-marker"></i>Bargny
+													</li>
+												</ul>
+												<!-- EVENT INFO : end -->
+
+											</div>
+											<!-- EVENT CORE : end -->
+
+										</div>
+									</article>
+									{% endfor %}
+									<!-- EVENT : end -->
+
+								</div>
+								<!-- EVENT LIST PAGE : begin -->
+
+								<!-- PAGINATION : begin -->
+								<div class="c-pagination">
+									<ul>
+										<li class="m-active"><a href="{% url 'Mairie:events' %}">1</a></li>
+										<li><a href="{% url 'Mairie:events' %}">2</a></li>
+										<li><a href="{% url 'Mairie:events' %}">3</a></li>
+									</ul>
+								</div>
+								<!-- PAGINATION : end -->
+
+							</div>
+						</div>
+						<!-- PAGE CONTENT : end -->
+
+						<hr class="c-separator m-margin-top-small m-margin-bottom-small m-transparent hidden-lg hidden-md">
+
+					</div>
+					<!-- MIDDLE COLUMN : end -->
+
+					<!-- LEFT COLUMN : begin -->
+					<div class="left-column col-md-3 col-md-pull-6">
+
+						<!-- SIDE MENU : begin -->
+						<nav class="side-menu m-left-side m-show-submenu">
+							<ul>
+								<li><a href="{% url 'Mairie:accueil' %}">Accueil</a></li>
+								<li class="m-active"><a href="{% url 'Mairie:mairie' %}">Municipalité</a>
+									<ul>
+										<li><a href="{% url 'Mairie:mairie' %}">Mairie</a></li>
+										<li><a href="{% url 'Mairie:conseil' %}">Conseil municipal</a></li>
+										<li><a href="{% url 'Mairie:contact' %}">Contacts</a></li>
+										<li><a href="{% url 'Mairie:documents' %}">Documents</a></li>
+										<li class="m-active"><a href="{% url 'Mairie:contact_maire' %}">Ecrire au maire</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Communauté</a>
+									<ul>
+										<li><a href="{% url 'Mairie:post' %}">News</a></li>
+										<li><a href="{% url 'Mairie:avis' %}">Avis publics</a></li>
+										<li><a href="{% url 'Mairie:events' %}">Evènements</a></li>
+										<li><a href="{% url 'Mairie:galeries' %}">Galeries</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Autres</a>
+									<ul>
+										<li><a href="{% url 'Mairie:stats' %}">Statistiques</a></li>
+										<li><a href="{% url 'Mairie:tour' %}">Tour virtuelle</a></li>
+										<li><a href="{% url 'Mairie:histoire' %}">Histoire de la ville</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+						<!-- SIDE MENU : end -->
+
+						<!-- LEFT SIDEBAR : begin -->
+						<aside class="sidebar">
+							<div class="widget-list">
+
+								<!-- FEATURED GALLERY WIDGET : begin -->
+								{% for album in albums %}
+								<div class="widget featured-gallery-widget">
+									<div class="widget-inner">
+										<h3 class="widget-title m-has-ico"><i class="widget-ico tp tp-pictures"></i>{{album.titre}}</h3>
+										<div class="widget-content">
+											<div class="gallery-image" title="Streets of TownPress">
+												<a href="{% url 'Mairie:galerie_photos' id=album.id %}"><img src="{{album.photo1.url}}" alt=""></a>
+											</div>
+											<p class="show-all-btn"><a href="{% url 'Mairie:galerie_photos' id=album.id %}">Voir photos</a></p>
+            							</div>
+									</div>
+								</div>
+								{% endfor %}
+								<!-- FEATURED GALLERY WIDGET : end -->
+							</div>
+						</aside>
+						<!-- LEFT SIDEBAR : end -->
+
+					</div>
+					<!-- LEFT COLUMN : end -->
+
+					<!-- RIGHT COLUMN : begin -->
+					<div class="right-column col-md-3">
+
+						<!-- RIGHT SIDEBAR : begin -->
+						<aside class="sidebar">
+							<div class="widget-list">
+
+								<!-- CATEGORIES WIDGET : begin -->
+								<div class="widget categories-widget">
+									<div class="widget-inner">
+										<h3 class="widget-title m-has-ico">
+										<i class="widget-ico tp tp-list4"></i>Categories</h3>
+										<div class="widget-content">
+											<ul>
+												<li><a href="#">Cinema</a> (2)</li>
+												<li><a href="#">Culture</a> (2)</li>
+												<li><a href="#">Relax</a> (2)</li>
+												<li><a href="#">Sport</a> (1)</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- CATEGORIES WIDGET : end -->
+
+								<!-- IMAGE WIDGET : begin -->
+								<div class="widget image-widget">
+									<div class="widget-inner">
+										<div class="widget-content">
+											<a href="#"><img src="/static/images/poster-01.jpg" alt=""></a>
+										</div>
+									</div>
+								</div>
+								<!-- IMAGE WIDGET : end -->
+
+								<!-- DOCUMENTS WIDGET : begin -->
+								<div class="widget documents-widget">
+									<div class="widget-inner">
+										<h3 class="widget-title m-has-ico"><i class="widget-ico tp tp-papers"></i>Documents</h3>
+										<div class="widget-content">
+											<ul class="document-list m-has-icons">
+
+												<!-- DOCUMENT : begin -->
+												{% for doc in docs %}
+												<li class="document">
+													<div class="document-inner">
+														<div class="document-icon" title="PDF File"><i class="fa fa-file-pdf-o"></i></div>
+														<h4 class="document-title">
+															<a href="{{doc.fichier.url}}" target="_blank">{{doc.titre}}</a>
+															<span class="document-filesize">(27 kB)</span>
+														</h4>
+													</div>
+												</li>
+												{% endfor %}
+												<!-- DOCUMENT : end -->
+											</ul>
+											<p class="show-all-btn"><a href="{% url 'Mairie:documents' %}">Voir tous les documents</a></p>
+										</div>
+									</div>
+								</div>
+								<!-- DOCUMENTS WIDGET : end -->
+							</div>
+						</aside>
+						<!-- RIGHT SIDEBAR : end -->
+
+					</div>
+					<!-- RIGHT COLUMN : end -->
+
+				</div>
+			</div>
+		</div>
+		<!-- CORE : end -->
+
+{% endblock %}

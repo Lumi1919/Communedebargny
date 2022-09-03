@@ -1,0 +1,7 @@
+* { zoom: 1; }
+
+/* HEADER BG FIX */
+.header-image:after { background:  0 bottom repeat-x; }
+
+/* FOOTER BG FIX */
+.footer-bg:before { background: 0 bottom repeat-x; }

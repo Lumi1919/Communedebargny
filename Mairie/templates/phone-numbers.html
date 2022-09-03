@@ -1,0 +1,234 @@
+﻿{% extends 'layouts/base.html' %}
+
+{% block content%}
+
+		<!-- CORE : begin -->
+		<div id="core">
+			<div class="c-container">
+				<div class="row">
+
+					<!-- MIDDLE COLUMN : begin -->
+					<div class="middle-column col-md-6 col-md-push-3">
+
+						<!-- PAGE HEADER : begin -->
+						<div id="page-header" class="m-has-breadcrumbs">
+
+							<!-- PAGE TITLE : begin -->
+							<div class="page-title">
+								<h1>Numéros utiles</h1>
+							</div>
+							<!-- PAGE TITLE : end -->
+
+							<!-- BREADCRUMBS : begin -->
+							<div class="breadcrumbs">
+								<ul>
+									<li class="home"><a href="{% url 'Mairie:accueil' %}">Accueil</a></li>
+									<li>Numeros utiles</li>
+								</ul>
+							</div>
+							<!-- BREADCRUMBS : end -->
+
+						</div>
+						<!-- PAGE HEADER : end -->
+
+						<!-- PAGE CONTENT : begin -->
+						<div id="page-content">
+							<div class="page-content-inner">
+
+								<!-- DEFINITION LIST : begin -->
+								<div class="c-definition-list">
+									<div class="c-content-box">
+										<dl>
+											<dt>Mairie</dt>
+											<dd>+221 77 287 81 95</dd>
+											<dt>Etat Civil</dt>
+											<dd>+221 77 287 81 95</dd>
+											<dt>Urbanisme</dt>
+											<dd>+221 77 287 81 95</dd>
+										</dl>
+									</div>
+								</div>
+								<!-- DEFINITION LIST : end -->
+
+								<!-- DEFINITION LIST : begin -->
+								<div class="c-definition-list">
+									<div class="c-content-box">
+										<dl>
+											<dt>Police</dt>
+											<dd>(221) 456-7893</dd>
+											<dt>Sapeurs Pompiers</dt>
+											<dd>(221) 456-7894</dd>
+											<dt>Service d'hygiene</dt>
+											<dd>(221) 456-7895</dd>
+										</dl>
+									</div>
+								</div>
+								<!-- DEFINITION LIST : end -->
+
+								<!-- DEFINITION LIST : begin -->
+								<div class="c-definition-list">
+									<div class="c-content-box">
+										<dl>
+											<dt>Bibliotheque municipale</dt>
+											<dd>(221) 456-7801</dd>
+											<dt>Recreation</dt>
+											<dd>(221) 456-7811</dd>
+										</dl>
+									</div>
+								</div>
+								<!-- DEFINITION LIST : end -->
+
+							</div>
+						</div>
+						<!-- PAGE CONTENT : end -->
+
+						<hr class="c-separator m-margin-top-small m-margin-bottom-small m-transparent hidden-lg hidden-md">
+
+					</div>
+					<!-- MIDDLE COLUMN : end -->
+
+					<!-- LEFT COLUMN : begin -->
+					<div class="left-column col-md-3 col-md-pull-6">
+
+						<!-- SIDE MENU : begin -->
+						<nav class="side-menu m-left-side m-show-submenu">
+							<ul>
+								<li><a href="{% url 'Mairie:accueil' %}">Accueil</a></li>
+								<li class="m-active"><a href="town-hall.html">Municipalité</a>
+									<ul>
+										<li><a href="{% url 'Mairie:mairie' %}">Mairie</a></li>
+										<li><a href="{% url 'Mairie:conseil' %}">Conseil municipal</a></li>
+										<li><a href="{% url 'Mairie:contact' %}">Contacts</a></li>
+										<li><a href="{% url 'Mairie:documents' %}">Documents</a></li>
+										<li class="m-active"><a href="{% url 'Mairie:contact_maire' %}">Ecrire au maire</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Communauté</a>
+									<ul>
+										<li><a href="{% url 'Mairie:post' %}">News</a></li>
+										<li><a href="{% url 'Mairie:avis' %}">Avis publics</a></li>
+										<li><a href="{% url 'Mairie:events' %}">Evènements</a></li>
+										<li><a href="{% url 'Mairie:galeries' %}">Galeries</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Autres</a>
+									<ul>
+										<li><a href="{% url 'Mairie:stats' %}">Statistiques</a></li>
+										<li><a href="{% url 'Mairie:tour' %}">Tour virtuelle</a></li>
+										<li><a href="{% url 'Mairie:histoire' %}">Histoire de la ville</a></li>
+										<li><a href="{% url 'Mairie:elements' %}">Elements</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+						<!-- SIDE MENU : end -->
+
+						<!-- LEFT SIDEBAR : begin -->
+						<aside class="sidebar">
+							<div class="widget-list">
+
+								<!-- DOCUMENTS WIDGET : begin -->
+								<div class="widget documents-widget">
+									<div class="widget-inner">
+										<h3 class="widget-title m-has-ico"><i class="widget-ico tp tp-papers"></i>Documents</h3>
+										<div class="widget-content">
+											<ul class="document-list m-has-icons">
+
+												<!-- DOCUMENT : begin -->
+												{% for doc in docs %}
+												<li class="document">
+													<div class="document-inner">
+														<div class="document-icon" title="PDF File"><i class="fa fa-file-pdf-o"></i></div>
+														<h4 class="document-title">
+															<a href="{{doc.fichier.url}}" target="_blank">{{doc.titre}}</a>
+															<span class="document-filesize">(27 kB)</span>
+														</h4>
+													</div>
+												</li>
+												{% endfor %}
+												<!-- DOCUMENT : end -->
+											</ul>
+											<p class="show-all-btn"><a href="{% url 'Mairie:documents' %}">Voir tous les documents</a></p>
+										</div>
+									</div>
+								</div>
+								<!-- DOCUMENTS WIDGET : end -->
+
+							</div>
+						</aside>
+						<!-- LEFT SIDEBAR : end -->
+
+					</div>
+					<!-- LEFT COLUMN : end -->
+
+					<!-- RIGHT COLUMN : begin -->
+					<div class="right-column col-md-3">
+
+						<!-- RIGHT SIDEBAR : begin -->
+						<aside class="sidebar">
+							<div class="widget-list">
+
+								<!-- NOTICES WIDGET : begin -->
+								<div class="widget notices-widget">
+									<div class="widget-inner">
+										<h3 class="widget-title m-has-ico"><i class="widget-ico tp tp-bullhorn"></i>Avis publics</h3>
+										<div class="widget-content">
+											<ul class="notice-list">
+
+												<!-- NOTICE : begin -->
+												{% for notice in avis %}
+												<li class="notice">
+													<div class="notice-inner">
+														<h4 class="notice-title"><a href="{% url 'Mairie:avis_show' id=notice.id %}">{{notice.titre}}</a></h4>
+														<span class="notice-date">{{notice.date}}</span>
+													</div>
+												</li>
+												{% endfor %}
+												<!-- NOTICE : end -->
+											</ul>
+											<p class="show-all-btn"><a href="{% url 'Mairie:avis' %}">Voir tous les avis</a></p>
+										</div>
+									</div>
+								</div>
+								<!-- NOTICES WIDGET : end -->
+
+								<!-- EVENTS WIDGET : begin -->
+								<div class="widget events-widget">
+									<div class="widget-inner">
+										<h3 class="widget-title m-has-ico"><i class="widget-ico tp tp-calendar-full"></i>Evènements à venir</h3>
+										<div class="widget-content">
+											<ul class="event-list">
+
+												<!-- EVENT : begin -->
+												{% for event in events %}
+												<li class="event m-has-date">
+													<div class="event-inner">
+														<div class="event-date" title="June 3, 2016">
+															<span class="event-month">{{ event.date|date:"M" }}</span>
+															<span class="event-day">{{ event.date|date:"d" }}</span>
+														</div>
+														<h4 class="event-title"><a href="{% url 'Mairie:event_show' id=event.id %}">{{event.titre}}</a></h4>
+													</div>
+												</li>
+												{% endfor %}
+												<!-- EVENT : end -->
+											</ul>
+											<p class="show-all-btn"><a href="{% url 'Mairie:events' %}">Voir tous les évènements</a></p>
+										</div>
+									</div>
+								</div>
+								<!-- EVENTS WIDGET : end -->
+
+							</div>
+						</aside>
+						<!-- RIGHT SIDEBAR : end -->
+
+					</div>
+					<!-- RIGHT COLUMN : end -->
+
+				</div>
+			</div>
+		</div>
+		<!-- CORE : end -->
+
+{% endblock %}

@@ -5,15 +5,16 @@ class Album(models.Model):
     titre = models.CharField(max_length=250, blank=True, null=True)
     auteur = models.CharField(max_length=200, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    photo1 = models.ImageField(blank=True, null=True)
-    photo2 = models.ImageField(blank=True, null=True)
-    photo3 = models.ImageField(blank=True, null=True)
-    photo4 = models.ImageField(blank=True, null=True)
-    photo5 = models.ImageField(blank=True, null=True)
-    photo6 = models.ImageField(blank=True, null=True)
+    photo1 = models.ImageField(upload_to='media/',blank=True, null=True)
+    photo2 = models.ImageField(upload_to='media/',blank=True, null=True)
+    photo3 = models.ImageField(upload_to='media/',blank=True, null=True)
+    photo4 = models.ImageField(upload_to='media/',blank=True, null=True)
+    photo5 = models.ImageField(upload_to='media/',blank=True, null=True)
+    photo6 = models.ImageField(upload_to='media/',blank=True, null=True)
     def __str__(self):
 
         return self.titre
+
 
 class Evenement(models.Model):
     titre = models.CharField(max_length=250, blank=True, null=True)

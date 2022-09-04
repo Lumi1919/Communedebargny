@@ -20,7 +20,7 @@ class Evenement(models.Model):
     titre = models.CharField(max_length=250, blank=True, null=True)
     categorie = models.CharField(max_length=250, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(upload_to='media/',blank=True, null=True)
     date = models.DateField(blank=True, null=True)
 
     def __str__(self):
@@ -31,7 +31,7 @@ class Evenement(models.Model):
 class News(models.Model):
     titre = models.CharField(max_length=250, blank=True, null=True)
     texte = models.TextField()
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(upload_to='media/',blank=True, null=True)
     date = models.DateField(blank=True, null=True)
 
     def __str__(self):
@@ -41,7 +41,7 @@ class News(models.Model):
 class Bureau_municipal(models.Model):
     nom = models.CharField(max_length=250, blank=True, null=True)
     titre = models.CharField(max_length=250, blank=True, null=True)
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(upload_to='media/',blank=True, null=True)
 
     def __str__(self):
 
@@ -58,7 +58,7 @@ class Avis(models.Model):
 
 
 class Une_photo(models.Model):
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(upload_to='media/',blank=True, null=True)
     titre = models.CharField(max_length=250, blank=True, null=True)
     texte = models.TextField(blank=True, null=True)
     date = models.DateField(blank=True, null=True)
@@ -70,7 +70,7 @@ class Une_photo(models.Model):
 class Doc(models.Model):
     titre = models.CharField(max_length=250, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    fichier = models.FileField(blank=True, null=True)
+    fichier = models.FileField(upload_to='media/',blank=True, null=True)
     date = models.DateField(blank=True, null=True)
 
     def __str__(self):
@@ -89,7 +89,7 @@ class Demarche(models.Model):
     mail = models.EmailField(max_length=200, blank=True, null=True)
     tel = models.CharField(max_length=200, blank=True, null=True)
     document = models.CharField(max_length=200, blank=True, null=True, choices = doc_choice)
-    piece_identite = models.FileField(blank=True, null=True)
+    piece_identite = models.FileField(upload_to='media/',blank=True, null=True)
     adresse = models.IntegerField(blank=True, null=True)
 
     def __str__(self):

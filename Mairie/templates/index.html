@@ -41,7 +41,7 @@
 							<!-- Logo dimensions can be changed in library/css/custom.css
 							You can remove "m-large-logo" class from following element to use standard (smaller) version of logo -->
 							<div class="header-branding m-large-logo">
-								<a href="index.html"><span>
+								<a href="{% url 'Mairie:accueil' %}"><span>
 									<img src="/static/images/logobargny.png"
 										data-hires="/static/images/logobargny.png"
 										alt="TownPress - Municipality HTML Template">
@@ -260,7 +260,7 @@
 									<div class="c-content-box">
 										<div class="post-list-inner">
 											<i class="ico-shadow tp tp-reading"></i>
-											<h2 class="post-list-title"><i class="ico tp tp-reading"></i><a href="post-list.html">BARGNY <strong>Les news</strong></a></h2>
+											<h2 class="post-list-title"><i class="ico tp tp-reading"></i><a href="{% url 'Mairie:post' %}">BARGNY <strong>Les news</strong></a></h2>
 											<div class="post-list-content">
 
 												<!-- FEATURED POST : begin -->

@@ -201,77 +201,40 @@
 										<i class="widget-ico tp tp-list4"></i>Categories</h3>
 										<div class="widget-content">
 											<ul>
-												<li><a href="gallery-list.html">Community</a> (2)</li>
-												<li><a href="gallery-list.html">Music</a> (2)</li>
-												<li><a href="gallery-list.html">Sights</a> (2)</li>
-												<li><a href="gallery-list.html">Sport</a> (1)</li>
+												<li><a href="#">Community</a> (2)</li>
+												<li><a href="#">Music</a> (2)</li>
+												<li><a href="#">Sights</a> (2)</li>
+												<li><a href="#">Sport</a> (1)</li>
 											</ul>
 										</div>
 									</div>
 								</div>
 								<!-- CATEGORIES WIDGET : end -->
 
-								<!-- GALLERIES WIDGET : begin -->
-								<div class="widget galleries-widget">
+								<!-- POSTS WIDGET : begin -->
+								<div class="widget posts-widget">
 									<div class="widget-inner">
-										<h3 class="widget-title m-has-ico"><i class="widget-ico tp tp-pictures"></i>Recent Galleries</h3>
+										<h3 class="widget-title m-has-ico"><i class="widget-ico tp tp-reading"></i>Articles récents</h3>
 										<div class="widget-content">
-											<ul>
+											<ul class="post-list">
 
-												<!-- GALLERY : begin -->
-												<li class="gallery">
-													<div class="gallery-inner">
-														<a href="gallery-detail.html" class="gallery-image"><img src="images/gallery-01-thumb.jpg" alt=""></a>
-														<h4 class="gallery-title">
-															<a href="gallery-detail.html">Summer Camp for Kids</a>
-														</h4>
-														<div class="gallery-date">August 24, 2015</div>
+												<!-- POST : begin -->
+												{% for post in posts %}
+												<li class="post m-active">
+													<div class="post-inner">
+														<h4 class="post-title"><a href="{% url 'Mairie:post_show' id=post.id %}">{{post.titre}}</a></h4>
+														<span class="post-date">{{post.date}}</span>
 													</div>
 												</li>
-												<!-- GALLERY : end -->
-
-												<!-- GALLERY : begin -->
-												<li class="gallery">
-													<div class="gallery-inner">
-														<a href="gallery-detail.html" class="gallery-image"><img src="images/gallery-02-thumb.jpg" alt=""></a>
-														<h4 class="gallery-title">
-															<a href="gallery-detail.html">Annual Marathon</a>
-														</h4>
-														<div class="gallery-date">July 11, 2015</div>
-													</div>
-												</li>
-												<!-- GALLERY : end -->
-
-												<!-- GALLERY : begin -->
-												<li class="gallery">
-													<div class="gallery-inner">
-														<a href="gallery-detail.html" class="gallery-image"><img src="images/gallery-03-thumb.jpg" alt=""></a>
-														<h4 class="gallery-title">
-															<a href="gallery-detail.html">Summer Rock Festival</a>
-														</h4>
-														<div class="gallery-date">June 18, 2015</div>
-													</div>
-												</li>
-												<!-- GALLERY : end -->
-
-												<!-- GALLERY : begin -->
-												<li class="gallery m-active">
-													<div class="gallery-inner">
-														<a href="gallery-detail.html" class="gallery-image"><img src="images/gallery-04-thumb.jpg" alt=""></a>
-														<h4 class="gallery-title">
-															<a href="gallery-detail.html">TownPress Sightseeing</a>
-														</h4>
-														<div class="gallery-date">June 3, 2015</div>
-													</div>
-												</li>
-												<!-- GALLERY : end -->
+												{% endfor %}
+												<!-- POST : end -->
 
 											</ul>
-											<p class="show-all-btn"><a href="gallery-list.html">See All Galleries</a></p>
+											<p class="show-all-btn"><a href="{% url 'Mairie:post' %}">Voir tous les articles</a></p>
 										</div>
 									</div>
 								</div>
-								<!-- GALLERIES WIDGET : end -->
+								<!-- POSTS WIDGET : end -->
 
 							</div>
 						</aside>

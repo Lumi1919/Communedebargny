@@ -240,10 +240,10 @@
 										<i class="widget-ico tp tp-list4"></i>Categories</h3>
 										<div class="widget-content">
 											<ul>
-												<li><a href="post-list.html">Community</a> (2)</li>
-												<li><a href="post-list.html">Culture</a> (2)</li>
-												<li><a href="post-list.html">Relax</a> (2)</li>
-												<li><a href="post-list.html">Sport</a> (1)</li>
+												<li><a href="#">Community</a> (2)</li>
+												<li><a href="#">Culture</a> (2)</li>
+												<li><a href="#">Relax</a> (2)</li>
+												<li><a href="#">Sport</a> (1)</li>
 											</ul>
 										</div>
 									</div>
@@ -253,48 +253,23 @@
 								<!-- POSTS WIDGET : begin -->
 								<div class="widget posts-widget">
 									<div class="widget-inner">
-										<h3 class="widget-title m-has-ico"><i class="widget-ico tp tp-reading"></i>Recent Posts</h3>
+										<h3 class="widget-title m-has-ico"><i class="widget-ico tp tp-reading"></i>Articles récents</h3>
 										<div class="widget-content">
 											<ul class="post-list">
 
 												<!-- POST : begin -->
+												{% for post in posts %}
 												<li class="post m-active">
 													<div class="post-inner">
-														<h4 class="post-title"><a href="post-detail.html">Report from Friendly Soccer Match between TownPress and PressTown</a></h4>
-														<span class="post-date">September 24, 2015</span>
+														<h4 class="post-title"><a href="{% url 'Mairie:post_show' id=post.id %}">{{post.titre}}</a></h4>
+														<span class="post-date">{{post.date}}</span>
 													</div>
 												</li>
-												<!-- POST : end -->
-
-												<!-- POST : begin -->
-												<li class="post">
-													<div class="post-inner">
-														<h4 class="post-title"><a href="post-detail.html">New Housing Complex in TownPress Nearly Complete</a></h4>
-														<span class="post-date">July 6, 2015</span>
-													</div>
-												</li>
-												<!-- POST : end -->
-
-												<!-- POST : begin -->
-												<li class="post">
-													<div class="post-inner">
-														<h4 class="post-title"><a href="post-detail.html">This Year’s Summer Rock Festival Draws More Than 1000 Fans</a></h4>
-														<span class="post-date">June 28, 2015</span>
-													</div>
-												</li>
-												<!-- POST : end -->
-
-												<!-- POST : begin -->
-												<li class="post">
-													<div class="post-inner">
-														<h4 class="post-title"><a href="post-detail.html">10 Things You Didn’t Know About our Town</a></h4>
-														<span class="post-date">May 14, 2015</span>
-													</div>
-												</li>
+												{% endfor %}
 												<!-- POST : end -->
 
 											</ul>
-											<p class="show-all-btn"><a href="post-list.html">See All Notices</a></p>
+											<p class="show-all-btn"><a href="{% url 'Mairie:post' %}">Voir tous les articles</a></p>
 										</div>
 									</div>
 								</div>

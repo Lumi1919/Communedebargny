@@ -29,10 +29,11 @@ def contactPage(request):
 
 def contact_maire(request):
     albums = Album.objects.all()
+    posts = News.objects.all()
     avis = Avis.objects.all()
     events = Evenement.objects.all()
     docs = Doc.objects.all()
-    return render(request, 'contact.html', {'events': events, 'avis': avis, 'albums': albums, 'docs': docs})
+    return render(request, 'contact.html', {'posts': posts, 'events': events, 'avis': avis, 'albums': albums, 'docs': docs})
 
 def documents(request):
     docs = Doc.objects.all()
@@ -60,10 +61,11 @@ def galeries(request):
     return render(request, 'gallery-list.html', {'albums' : albums, 'docs': docs})
 
 def galerie_photos(request, id):
+    posts = News.objects.all()
     album = Album.objects.get(pk=id)
     albums = Album.objects.all()
     docs = Doc.objects.all()
-    return render(request, 'gallery-detail.html', {'albums': albums, 'album': album, 'docs': docs})
+    return render(request, 'gallery-detail.html', {'posts' : posts, 'albums': albums, 'album': album, 'docs': docs})
 
 def conseil(request):
     docs = Doc.objects.all()
@@ -78,17 +80,19 @@ def post(request):
     return render(request, 'post-list.html', {'albums': albums, 'news': news, 'docs': docs, 'avis': avis})
 
 def post_show(request, id):
+    posts = News.objects.all()
     docs = Doc.objects.all()
     avis = Avis.objects.all()
     news = News.objects.get(pk=id)
     albums = Album.objects.all()
-    return render(request, 'post-detail.html', {'albums': albums, 'news': news, 'docs': docs, 'avis': avis})
+    return render(request, 'post-detail.html', {'posts': posts, 'albums': albums, 'news': news, 'docs': docs, 'avis': avis})
 
 def avis(request):
+    posts = News.objects.all()
     docs = Doc.objects.all()
     avis = Avis.objects.all()
     albums = Album.objects.all()
-    return render(request, 'notice-list.html', {'albums': albums, 'avis': avis, 'docs': docs})
+    return render(request, 'notice-list.html', {'posts': posts, 'albums': albums, 'avis': avis, 'docs': docs})
 
 def avis_show(request, id):
     aviss = Avis.objects.all()

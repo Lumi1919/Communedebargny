@@ -137,6 +137,9 @@ def recherche(request):
 
 
 def etat_civil(request):
+    docs = Doc.objects.all()
+    avis = Avis.objects.all()
+    events = Evenement.objects.all()
     model = Demarche
     form_class = DemarcheForm
     if request.method == "POST":
@@ -146,7 +149,7 @@ def etat_civil(request):
 
     else:
         form = DemarcheForm()
-    return render(request, 'etat_civil.html', {'form': form, 'dataDemarche': Demarche.objects.all()})
+    return render(request, 'etat_civil.html', {'avis': avis, 'events': events, 'docs': docs, 'form': form, 'dataDemarche': Demarche.objects.all()})
 
 
 
